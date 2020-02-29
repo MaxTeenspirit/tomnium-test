@@ -1,0 +1,25 @@
+.Table {
+    border: 1px solid black;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.Table__row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Table__cell {
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.Table__cell_yellow {
+    background-color: rgb(250, 250, 160);
+}
+
+.Table__cell_green {
+    background-color: rgb(120, 170, 120);
+}
