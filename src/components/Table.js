@@ -18,7 +18,8 @@ class Table extends Component {
                             </div>
                           </div>
                         : 
-                          <div>
+                          <div className="Table__rate-wrapper">
+                              <div className="Table__row Table__row_title">{key}</div>
                             {
                               Object.keys(state[key]).map((innerKey, index) => (
                                 <div key={index} className="Table__row">

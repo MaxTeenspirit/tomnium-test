@@ -9,6 +9,13 @@
     flex-wrap: wrap;
 }
 
+.Table__row_title {
+    display: block;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
 .Table__cell {
     box-sizing: border-box;
     padding: 5px;
