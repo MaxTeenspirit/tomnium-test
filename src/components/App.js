@@ -8,11 +8,9 @@ class App extends Component {
     super(props);
 
     this.state = {}
-
-    this.getData = this.getData.bind(this);
   }
 
-  getData() {
+  getData = () => {
     return new Promise((resolve, reject) => {
       setTimeout(function() {
         resolve(data)
@@ -22,18 +20,23 @@ class App extends Component {
 
   componentDidMount() {
     this.getData()
-    .then(() => this.getData())
     .then(data => {
-      this.setState(data)
+      this.setState(data.default)
     })
   }
 
   render() {
-    const state = this.state.default;
+    const { valid, timestamp, base, rates} = this.state;
+
     return (
       <div className="App">
-        {state &&
-          <Table state={state}/>
+        {this.state.valid &&
+          <Table 
+            valid={valid}
+            timestamp={timestamp}
+            base={base}
+            rates={rates} 
+          />
         }
       </div>
     )

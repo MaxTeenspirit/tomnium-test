@@ -3,41 +3,57 @@ import './Table.css';
 
 class Table extends Component {
   render() {
-    const state = this.props.state;
-      return (
+    const { valid, timestamp, base, rates } = this.props;
+
+      return(
         <div className="Table">
+
+          <div className="Table__row">
+            <div className="Table__cell Table__cell_yellow">
+              {`Valid`}
+            </div>
+            <div className="Table__cell Table__cell_yellow">
+              {`${valid}`}
+            </div>
+          </div>
+
+          <div className="Table__row">
+            <div className="Table__cell Table__cell_yellow">
+              {`Timestamp`}
+            </div>
+            <div className="Table__cell Table__cell_yellow">
+              {`${timestamp}`}
+            </div>
+          </div>
+
+          <div className="Table__row">
+            <div className="Table__cell Table__cell_yellow">
+              {`Base`}
+            </div>
+            <div className="Table__cell Table__cell_yellow">
+              {`${base}`}
+            </div>
+          </div>
+
+          <div className="Table__row Table__row_title">
+            {`Rates`}
+          </div>
+
           {
-            Object.keys(state).map((key, index) => (
-              typeof state[key] !== 'object'
-              ? <div key={index} className="Table__row">
-                  <div className="Table__cell Table__cell_yellow">
-                    {`${key}`}
-                  </div>
-                  <div className="Table__cell Table__cell_yellow">
-                    {`${state[key]}`}
-                  </div>
+            Object.keys(rates).map((itemName, index) => (
+              <div key={index} className="Table__row">
+                <div className="Table__cell Table__cell_green">
+                  {`${itemName}`}
                 </div>
-              : 
-                <div key={index} className="Table__rate-wrapper">
-                  <div className="Table__row Table__row_title">{key}</div>
-                  {
-                    Object.keys(state[key]).map((innerKey, index) => (
-                      <div key={index} className="Table__row">
-                        <div className="Table__cell Table__cell_green">
-                          {`${innerKey}`}
-                        </div>
-                        <div className="Table__cell Table__cell_green">
-                          {`${state[key][innerKey]}`}
-                        </div>
-                      </div>
-                      )
-                    )
-                  }
+                <div className="Table__cell Table__cell_green">
+                  {`${rates[itemName]}`}
                 </div>
-              ))
-            }
+              </div>
+            ))
+          }
+
         </div>
-    )
+      )
   }
 }
 
